@@ -108,6 +108,8 @@ carsDF = pd.read_csv("carsFixed.csv")
 -Compares average productivity with vs without you (bar chart with error bars).
 -Highlights daily lift per shop (horizontal bar chart).
 ```{python}
+#| echo: false
+#| include: false
 # Install seaborn if not available
 import subprocess
 import sys
@@ -155,7 +157,7 @@ print(pivot)
 # -----------------------------
 # Visualization 1: All data points
 # -----------------------------
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(8,5))
 sns.stripplot(
     data=carsDF, x="shopID", y="carsFixed",
     hue="boss", dodge=True, jitter=0.25,
@@ -175,7 +177,7 @@ means = carsDF.groupby(['shopID','boss'])['carsFixed'].mean().reset_index()
 stds = carsDF.groupby(['shopID','boss'])['carsFixed'].std().reset_index()
 stats = means.merge(stds, on=['shopID','boss'], suffixes=('_mean','_std'))
 
-plt.figure(figsize=(10,5))
+plt.figure(figsize=(8,5))
 for b,color,label,offset in [(0,'gray','Absent',-0.15),(1,'steelblue','Present',0.15)]:
     sub = stats[stats['boss']==b]
     plt.bar(sub['shopID']+offset, sub['carsFixed_mean'], yerr=sub['carsFixed_std'],
@@ -191,7 +193,7 @@ plt.show()
 # -----------------------------
 # Visualization 3: Daily lift (extra cars fixed)
 # -----------------------------
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(8,5))
 ordered = pivot.sort_values('lift', ascending=True)
 plt.barh(ordered.index.astype(str), ordered['lift'], color='seagreen')
 plt.xlabel("Extra cars fixed per day with boss present")
@@ -207,6 +209,8 @@ Revenue impact: Calculates extra dollars per day if Patrick is present, based on
 
 Weekly schedule: Suggests visiting the top 2 shops (highest lift) twice per week, and the remaining shops once. Prints a simple Mon–Fri plan.
 ```{python}
+#| echo: false
+#| include: false
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -237,7 +241,7 @@ print(pivot)
 # -----------------------------
 # Visualization: Daily lift
 # -----------------------------
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(8,5))
 ordered = pivot.sort_values('lift', ascending=True)
 plt.barh(ordered.index.astype(str), ordered['lift'], color='seagreen')
 plt.xlabel("Extra cars fixed per day with boss present")
@@ -291,6 +295,8 @@ Uses a simple rule of thumb:
 - If the lift is less than 3, Patrick should be cautious and consider other factors.
 
 ```{python}
+#| echo: false
+#| include: false
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -321,7 +327,7 @@ print(pivot)
 # -----------------------------
 # Visualization: Daily lift
 # -----------------------------
-plt.figure(figsize=(8,4))
+plt.figure(figsize=(8,5))
 ordered = pivot.sort_values('lift', ascending=True)
 plt.barh(ordered.index.astype(str), ordered['lift'], color='seagreen')
 plt.xlabel("Extra cars fixed per day with boss present")
