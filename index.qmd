@@ -10,7 +10,7 @@ execute:
 
 ```{python}
 #| include: false
-#| echo: false
+#| eval: false
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -299,6 +299,7 @@ plt.show()
 #| fig-cap: "Style 5: Heatmap - Color intensity shows productivity levels"
 #| fig-width: 8
 #| fig-height: 6
+#| eval: false
 
 fig, ax = plt.subplots(figsize=(8, 6))
 
@@ -340,6 +341,7 @@ plt.show()
 #| fig-cap: "Style 6: Stacked Area Chart - Visualizing the boost effect"
 #| fig-width: 10
 #| fig-height: 7
+#| eval: false
 
 fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -382,6 +384,7 @@ plt.show()
 #| fig-cap: "Shop Performance Dashboard - Comparing all shops side by side with your impact"
 #| fig-width: 14
 #| fig-height: 10
+#| eval: false
 
 fig = plt.figure(figsize=(14, 10))
 gs = fig.add_gridspec(2, 3, hspace=0.3, wspace=0.3)
@@ -493,6 +496,7 @@ plt.show()
 #| fig-cap: "Weekly Patterns - How productivity varies across the 7 days of the week (Remember: You can only visit 1 shop per day)"
 #| fig-width: 14
 #| fig-height: 10
+#| eval: false
 #| echo: false
 
 fig = plt.figure(figsize=(14, 10))
@@ -598,6 +602,8 @@ Since you can only visit **1 shop per day**, here's your optimal weekly schedule
 #| fig-cap: "Yearly Benefits - Projected annual impact of optimal scheduling"
 #| fig-width: 14
 #| fig-height: 10
+#| eval: false
+#| echo: false
 
 fig = plt.figure(figsize=(14, 10))
 gs = fig.add_gridspec(2, 2, hspace=0.3, wspace=0.3)
