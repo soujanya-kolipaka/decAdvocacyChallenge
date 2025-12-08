@@ -10,7 +10,7 @@ execute:
 
 ```{python}
 #| include: false
-#| eval: false
+#| echo: false
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
