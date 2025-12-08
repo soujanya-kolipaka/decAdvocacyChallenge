@@ -1,6 +1,6 @@
 --- 
-title: "Decision Advocacy Challenge"
-subtitle: "Data-Driven Scheduling for Maximum Productivity"
+title: "Patrick's Auto Shop Productivity Report"
+subtitle: "Where Should You Spend Your Time for Maximum Productivity"
 format:
   html: default
 execute:
@@ -246,12 +246,12 @@ ax.legend(handles=legend_elements, loc='upper right', fontsize=11, frameon=True)
 plt.tight_layout()
 plt.show()
 ```
-
+***Reading this box and whisker plot:*** The box plot shows the distribution of productivity for each shop when you’re away vs. when you’re present. The box shows the quartiles, the median, and the outliers. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
 ```{python}
 #| fig-cap: "Style 4: Line Plot - Trend comparison across shops"
 #| fig-width: 10
 #| fig-height: 7
-#| echo: false
+#| eval: false
 
 fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -336,6 +336,7 @@ ax.set_title('Style 5: Heatmap - Productivity Intensity by Shop and Presence', f
 plt.tight_layout()
 plt.show()
 ```
+***Reading this heatmap:*** The heatmap shows the productivity for each shop when you’re away vs. when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
 
 ```{python}
 #| fig-cap: "Style 6: Stacked Area Chart - Visualizing the boost effect"
@@ -375,6 +376,7 @@ ax.set_ylim(0, 75)
 plt.tight_layout()
 plt.show()
 ```
+***Reading this stacked area chart:*** The stacked area chart shows the base productivity (when you’re away) and the boost productivity (when you’re present). The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
 
 ## Comprehensive Analysis: Shop Performance, Weekly Patterns & Yearly Benefits
 
@@ -487,6 +489,7 @@ plt.suptitle('Shop Performance Dashboard: Complete Analysis', fontsize=16, fontw
 plt.tight_layout()
 plt.show()
 ```
+***Reading this shop performance dashboard:*** The shop performance dashboard shows the productivity for each shop when you’re away vs. when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
 
 ### Weekly Pattern Analysis: 7 Days Performance
 
@@ -498,7 +501,6 @@ plt.show()
 #| fig-height: 10
 #| eval: false
 #| echo: false
-
 fig = plt.figure(figsize=(14, 10))
 gs = fig.add_gridspec(2, 2, hspace=0.3, wspace=0.3)
 
