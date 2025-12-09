@@ -183,7 +183,6 @@ ax.set_ylim(0, 75)
 plt.tight_layout()
 plt.show()
 ```
-***Reading this Bar Chart:*** The bars show the average productivity for each shop when you’re away vs. when you’re present. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
 
 
 ```{python}
@@ -409,7 +408,68 @@ plt.suptitle('Shop Performance Dashboard: Complete Analysis', fontsize=16, fontw
 plt.tight_layout()
 plt.show()
 ```
-***Reading this shop performance dashboard:*** The shop performance dashboard shows the productivity for each shop when you’re away vs. when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
+
+#### Complete Analysis Summary for Patrick
+
+**Shop Performance Dashboard Analysis:**
+
+This comprehensive dashboard provides six key insights into shop performance across all five shops (Shop 1, Shop 2, Shop 3, Shop 4, and Shop 5):
+
+**1. Shop Performance Comparison (Top Left):**
+This chart compares the average number of cars fixed per day when you're away versus when you're present at each shop. The side-by-side bars show:
+- **Shop 1**: Performance with and without your presence
+- **Shop 2**: Performance with and without your presence
+- **Shop 3**: Performance with and without your presence
+- **Shop 4**: Performance with and without your presence
+- **Shop 5**: Performance with and without your presence
+
+This visualization helps identify which shops show the largest performance gap between your presence and absence.
+
+**2. Your Impact: Extra Cars Fixed (Top Middle):**
+This chart quantifies your direct impact by showing the productivity boost (additional cars fixed) when you're present at each shop. Positive values (green bars) indicate shops where your presence increases productivity, while negative values (red bars) suggest shops that may perform better when you're not there. The chart displays:
+- Shop 1's productivity boost
+- Shop 2's productivity boost
+- Shop 3's productivity boost
+- Shop 4's productivity boost
+- Shop 5's productivity boost
+
+**3. Total Productivity by Shop (Top Right):**
+This chart shows the total number of cars fixed across all 250 days for each shop, regardless of your presence. This helps identify:
+- Which shops are the highest volume producers overall
+- The cumulative contribution of Shop 1, Shop 2, Shop 3, Shop 4, and Shop 5 to the business
+
+**4. Efficiency Gain When You're Present (Bottom Left):**
+This chart calculates the percentage efficiency gain for each shop when you're present compared to when you're away. It shows:
+- Shop 1's efficiency percentage improvement
+- Shop 2's efficiency percentage improvement
+- Shop 3's efficiency percentage improvement
+- Shop 4's efficiency percentage improvement
+- Shop 5's efficiency percentage improvement
+
+Higher percentages indicate shops where your presence creates the most significant relative improvement.
+
+**5. Consistency: Lower is Better (Bottom Middle):**
+This chart measures variability (coefficient of variation) for each shop, comparing consistency when you're away versus when you're present. Lower variability means more consistent performance. The chart shows:
+- Shop 1's consistency metrics (away vs. present)
+- Shop 2's consistency metrics (away vs. present)
+- Shop 3's consistency metrics (away vs. present)
+- Shop 4's consistency metrics (away vs. present)
+- Shop 5's consistency metrics (away vs. present)
+
+This helps identify which shops become more predictable and reliable when you're present.
+
+**6. Priority Ranking: Where to Focus (Bottom Right):**
+This horizontal bar chart ranks all five shops by their productivity boost when you're present, from highest to lowest impact. This provides:
+- A clear priority list showing which shops (Shop 1, Shop 2, Shop 3, Shop 4, Shop 5) benefit most from your presence
+- Visual guidance on where to allocate your time for maximum impact
+- Identification of shops that may not require your direct presence
+
+**Key Takeaways for Patrick:**
+- Use the Priority Ranking chart to identify your top 2-3 shops that benefit most from your presence
+- The Efficiency Gain chart shows which shops have the highest percentage improvement when you're there
+- The Consistency chart helps identify shops that become more reliable with your presence
+- Consider focusing your daily visits on shops with the highest productivity boost and efficiency gains
+- Shops with negative impact may be operating well independently and may not need your daily attention
 
 ### Weekly Pattern Analysis: 7 Days Performance
 
@@ -505,6 +565,56 @@ plt.suptitle('Weekly Pattern Analysis: 7 Days Performance Insights', fontsize=16
 plt.tight_layout()
 plt.show()
 ```
+
+#### Complete Weekly Pattern Analysis Summary for Patrick
+
+**Weekly Pattern Analysis: 7 Days Performance Insights**
+
+This dashboard provides four key insights into how productivity varies across the week and helps you optimize your daily shop visits:
+
+**1. Average Productivity by Day of Week (Top Left):**
+This chart compares the average number of cars fixed on each day of the week (Monday through Sunday) when you're away versus when you're present. The side-by-side bars reveal:
+- **Monday**: Productivity levels with and without your presence
+- **Tuesday**: Productivity levels with and without your presence
+- **Wednesday**: Productivity levels with and without your presence
+- **Thursday**: Productivity levels with and without your presence
+- **Friday**: Productivity levels with and without your presence
+- **Saturday**: Productivity levels with and without your presence
+- **Sunday**: Productivity levels with and without your presence
+
+This visualization helps identify which days of the week show the highest overall productivity and where your presence makes the biggest difference.
+
+**2. Your Impact by Day of Week (Top Right):**
+This chart quantifies your direct productivity boost (additional cars fixed) for each day of the week when you're present. The chart shows:
+- Which days (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) benefit most from your presence
+- The exact productivity boost for each day (positive values in green indicate days where your presence significantly increases output)
+- Days where your impact is minimal or negative (red bars), suggesting those days may not require your direct presence
+
+**3. Best Day to Visit Each Shop (Bottom Left):**
+This is the most actionable chart for your weekly planning. It identifies the optimal day of the week to visit each of the five shops (Shop 1, Shop 2, Shop 3, Shop 4, and Shop 5) for maximum impact. The chart displays:
+- **Shop 1**: Best day to visit and the maximum boost you provide on that day
+- **Shop 2**: Best day to visit and the maximum boost you provide on that day
+- **Shop 3**: Best day to visit and the maximum boost you provide on that day
+- **Shop 4**: Best day to visit and the maximum boost you provide on that day
+- **Shop 5**: Best day to visit and the maximum boost you provide on that day
+
+Each bar is color-coded by the recommended day, and the label shows both the day abbreviation and the productivity boost value. This helps you create an optimal weekly schedule that maximizes your impact across all shops.
+
+**4. Weekly Pattern Insights (Overall):**
+The dashboard reveals patterns such as:
+- Whether certain days of the week (weekdays vs. weekends) show consistently higher productivity
+- Which days benefit most from your presence across all shops
+- How to balance your weekly visits to cover all five shops while maximizing impact
+
+**Key Takeaways for Patrick:**
+- **Use the "Best Day to Visit Each Shop" chart** to plan your weekly schedule - this shows exactly which shop to visit on which day for maximum productivity boost
+- **Combine insights from all charts**: If a shop shows high impact on a specific day AND that day shows high overall productivity boost, prioritize visiting that shop on that day
+- **Remember the constraint**: You can only visit 1 shop per day, so use the "Best Day to Visit Each Shop" chart to create your optimal 7-day rotation
+- **Balance your visits**: Try to visit all five shops throughout the week, but prioritize shops with the highest boost values on their best days
+- **Day-specific patterns**: Pay attention to which days of the week show the highest productivity boost overall - these are your "high-impact days" where your presence matters most
+
+**Strategic Planning Tip:**
+Create a weekly schedule by matching each shop to its best day. If multiple shops have the same best day, prioritize the shop with the highest boost value for that day, and schedule the other shop(s) on their second-best day(s).
 
 ### Recommended Weekly Schedule (1 Shop Per Day)
 
@@ -633,6 +743,107 @@ plt.tight_layout()
 plt.show()
 ```
 
+#### Complete Yearly Benefits Analysis Summary for Patrick
+
+**Yearly Benefit Projections: Financial Impact Analysis**
+
+This comprehensive dashboard provides four critical financial projections showing the long-term impact of your shop visit strategy. The analysis assumes an average price of **$500 per car fixed** and projects outcomes over a full year (365 days) and beyond.
+
+**1. Yearly Revenue Projections (Top Left):**
+This chart compares three different strategies and their annual revenue impact:
+- **Current Strategy**: Revenue if all 5 shops (Shop 1, Shop 2, Shop 3, Shop 4, Shop 5) operate without your presence throughout the year
+- **Optimal Strategy (Shops 4 & 1)**: Revenue if you focus your time equally between Shop 4 and Shop 1 (182.5 days at each), while the other three shops (Shop 2, Shop 3, Shop 5) operate without you
+- **If You Visit All Shops Equally**: Revenue if you spend equal time at all 5 shops (73 days at each shop)
+
+The chart shows which strategy generates the highest total annual revenue, helping you understand the financial value of focusing on your highest-impact shops.
+
+**2. Annual Productivity: Extra Cars Fixed (Top Right):**
+This chart compares the total number of cars fixed per year under two scenarios:
+- **Current Strategy**: Total cars fixed if you don't visit any shops (all 5 shops operate without you)
+- **Optimal Strategy**: Total cars fixed when you focus on Shops 4 and 1
+
+The difference between these two scenarios shows the **extra cars fixed per year** due to your strategic presence. This directly translates to additional revenue and demonstrates your value to the business.
+
+**3. Monthly Benefit Breakdown (Bottom Left):**
+This chart shows the **extra revenue generated each month** (January through December) when following the optimal strategy of focusing on Shops 4 and 1. The monthly breakdown helps you:
+- Understand seasonal consistency of benefits
+- Plan monthly budgets and expectations
+- See how your strategic presence compounds month by month
+
+Each bar represents the additional revenue (in thousands of dollars) generated that month compared to the current strategy, accounting for the varying number of days in each month.
+
+**4. 5-Year Revenue Projection (Bottom Right):**
+This chart projects the cumulative revenue difference between the current strategy and optimal strategy over 5 years. It shows:
+- **Current Strategy Line**: Cumulative revenue if you don't visit shops strategically
+- **Optimal Strategy Line**: Cumulative revenue if you focus on Shops 4 and 1
+- **Gap Between Lines**: The growing financial benefit of optimal scheduling over time
+
+The annotations show the additional cumulative revenue each year, demonstrating how strategic scheduling compounds over multiple years.
+
+**Understanding Total Revenue Calculations:**
+
+The revenue calculations are based on:
+- **Price per car**: $500 (assumed average)
+- **Days per year**: 365 days
+- **Number of shops**: 5 shops total
+- **Your presence impact**: The productivity boost (extra cars fixed) when you're present at a shop
+
+**Total Revenue Formula:**
+- For each shop: (Average cars fixed per day) × (Number of days you're there) × ($500 per car)
+- Total revenue = Sum of revenue from all 5 shops
+- Extra revenue = Optimal strategy revenue - Current strategy revenue
+
+**Weekly Scheduling Guidance: How to Spend Time Across All 5 Shops**
+
+Since you can only visit **1 shop per day**, here's how to strategically allocate your weekly time across all 5 shops:
+
+**Option 1: Focus Strategy (Maximum Revenue)**
+- **Primary Focus**: Spend most of your time at **Shop 4** and **Shop 1** (your highest-impact shops)
+- **Weekly Rotation**: Visit Shop 4 on 3-4 days per week, Shop 1 on 2-3 days per week
+- **Other Shops**: Visit Shop 2, Shop 3, and Shop 5 occasionally (maybe 1 day every 2-3 weeks) or when needed
+- **Annual Impact**: This strategy maximizes total revenue, as shown in the "Optimal Strategy" projections
+
+**Option 2: Balanced Weekly Rotation**
+- **Weekly Schedule**: Create a 7-day rotation covering all 5 shops
+- **Day-Specific Visits**: Use the "Best Day to Visit Each Shop" chart to match each shop to its optimal day
+- **Example Weekly Pattern**:
+  - Monday: Visit the shop with highest Monday boost
+  - Tuesday: Visit the shop with highest Tuesday boost
+  - Wednesday: Visit the shop with highest Wednesday boost
+  - Thursday: Visit the shop with highest Thursday boost
+  - Friday: Visit the shop with highest Friday boost
+  - Saturday: Visit the shop with highest Saturday boost
+  - Sunday: Visit the shop with highest Sunday boost
+- **Annual Impact**: This provides balanced coverage but may generate slightly less total revenue than the focus strategy
+
+**Option 3: Hybrid Approach (Recommended)**
+- **High-Impact Days**: On days when Shop 4 or Shop 1 show their highest boost, prioritize visiting them
+- **Balanced Coverage**: On other days, rotate through Shops 2, 3, and 5 based on their best days
+- **Weekly Pattern**: Aim for 3-4 days at Shop 4/Shop 1, 2-3 days rotating through other shops
+- **Flexibility**: Adjust for special circumstances (e.g., your brother's shop - Shop 3 - may need occasional attention)
+
+**Key Recommendations for Patrick:**
+
+1. **Prioritize Shop 4 and Shop 1**: These shops show the highest productivity boost when you're present. Spending more time here maximizes your impact and revenue.
+
+2. **Use Day-Specific Planning**: Combine shop priority with day-specific insights. Visit Shop 4 on its best day, Shop 1 on its best day, etc.
+
+3. **Balance vs. Focus Trade-off**: 
+   - **Focus Strategy** (Shops 4 & 1): Higher total revenue, but less coverage of other shops
+   - **Balanced Strategy** (All 5 shops): Better coverage, but slightly lower total revenue
+   - Choose based on your business priorities
+
+4. **Track Monthly Benefits**: Use the monthly breakdown chart to monitor if your scheduling is generating expected benefits month by month.
+
+5. **Long-Term Planning**: The 5-year projection shows that consistent optimal scheduling compounds significantly over time. Small daily improvements add up to substantial long-term gains.
+
+6. **Revenue Calculation**: Remember that total revenue = (Cars fixed per day) × (Days) × ($500 per car). Your presence increases cars fixed per day, which directly multiplies into additional revenue.
+
+**Total Revenue Summary:**
+- The dashboard shows that following an optimal strategy (focusing on Shops 4 and 1) can generate significantly more annual revenue compared to visiting all shops equally or not visiting strategically
+- The exact revenue numbers depend on the actual productivity data, but the projections show the relative benefit of different strategies
+- Over 5 years, the cumulative difference between strategies can be substantial, demonstrating the long-term value of strategic scheduling
+
 ### Key Insights Summary
 
 **Shop-Based Insights:**
@@ -678,3 +889,5 @@ Your report should answer these questions in a clear, concise way:
 
    - Show at least one visualization of projected outcomes under different scheduling scenarios
    - Help Patrick see the potential impact of following your recommendations
+   answer: The 5-year projection shows that consistent optimal scheduling compounds significantly over time. Small daily improvements add up to substantial long-term gains.
+   
