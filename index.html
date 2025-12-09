@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -138,7 +103,7 @@ window.Quarto = {
 <section id="what-the-data-shows" class="level2">
 <h2 class="anchored" data-anchor-id="what-the-data-shows">What the Data Shows</h2>
 <p>We analyzed 250 days of productivity data across your 5 shops. Here’s every single day plotted—you can see the pattern clearly:</p>
-<div id="35c29d2a" class="cell" data-fig-height="10" data-fig-width="11" data-execution_count="2">
+<div id="caa6371e" class="cell" data-fig-height="10" data-fig-width="11" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -150,7 +115,7 @@ window.Quarto = {
 </div>
 <p><strong><em>What the data shows:</em></strong> All shops are stacked in one view, with each column showing one shop’s daily productivity. Green dots = you were there, orange dots = you were away. The horizontal lines show the mean for each condition. The delta (Δ) shows how many more cars get fixed when you’re there. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
 <p><strong><em>Distribution Comparison: Bar Chart</em></strong> This view shows the average productivity for each shop when you’re away vs.&nbsp;when you’re present. Bars = average productivity. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
-<div id="8de791f7" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="3">
+<div id="0cdf5c36" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -161,7 +126,7 @@ window.Quarto = {
 </div>
 </div>
 <p><strong><em>Reading this Bar Chart:</em></strong> The bars show the average productivity for each shop when you’re away vs.&nbsp;when you’re present. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
-<div id="5c496b6d" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="4">
+<div id="2d88dcd1" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -172,226 +137,13 @@ window.Quarto = {
 </div>
 </div>
 <p><strong><em>Reading this box and whisker plot:</em></strong> The box plot shows the distribution of productivity for each shop when you’re away vs.&nbsp;when you’re present. The box shows the quartiles, the median, and the outliers. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
-<div id="2d9bca71" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate means</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>means_away <span class="op">=</span> [carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">0</span>)][<span class="st">'carsFixed'</span>].mean() <span class="cf">for</span> shop <span class="kw">in</span> shop_ids]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>means_present <span class="op">=</span> [carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">1</span>)][<span class="st">'carsFixed'</span>].mean() <span class="cf">for</span> shop <span class="kw">in</span> shop_ids]</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot lines</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>ax.plot(shop_ids, means_away, marker<span class="op">=</span><span class="st">'o'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, markersize<span class="op">=</span><span class="dv">10</span>, </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">'You Away'</span>, color<span class="op">=</span><span class="st">'#E67E22'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, markerfacecolor<span class="op">=</span><span class="st">'white'</span>, </span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        markeredgewidth<span class="op">=</span><span class="dv">2</span>, markeredgecolor<span class="op">=</span><span class="st">'#E67E22'</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>ax.plot(shop_ids, means_present, marker<span class="op">=</span><span class="st">'s'</span>, linewidth<span class="op">=</span><span class="dv">3</span>, markersize<span class="op">=</span><span class="dv">10</span>, </span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        label<span class="op">=</span><span class="st">'You Present'</span>, color<span class="op">=</span><span class="st">'#27AE60'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, markerfacecolor<span class="op">=</span><span class="st">'white'</span>, </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        markeredgewidth<span class="op">=</span><span class="dv">2</span>, markeredgecolor<span class="op">=</span><span class="st">'#27AE60'</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add value labels</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, shop <span class="kw">in</span> <span class="bu">enumerate</span>(shop_ids):</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    ax.text(shop, means_away[i] <span class="op">+</span> <span class="dv">2</span>, <span class="ss">f'</span><span class="sc">{</span>means_away[i]<span class="sc">:.1f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">9</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'#E67E22'</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    ax.text(shop, means_present[i] <span class="op">+</span> <span class="dv">2</span>, <span class="ss">f'</span><span class="sc">{</span>means_present[i]<span class="sc">:.1f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span><span class="dv">9</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'#27AE60'</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add delta</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    delta <span class="op">=</span> means_present[i] <span class="op">-</span> means_away[i]</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    delta_color <span class="op">=</span> <span class="st">'#27AE60'</span> <span class="cf">if</span> delta <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'#E74C3C'</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    delta_label <span class="op">=</span> <span class="ss">f'+</span><span class="sc">{</span>delta<span class="sc">:.1f}</span><span class="ss">'</span> <span class="cf">if</span> delta <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="ss">f'</span><span class="sc">{</span>delta<span class="sc">:.1f}</span><span class="ss">'</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    ax.annotate(<span class="ss">f'Δ </span><span class="sc">{</span>delta_label<span class="sc">}</span><span class="ss">'</span>, xy<span class="op">=</span>(shop, <span class="bu">max</span>(means_away[i], means_present[i])), </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>                xytext<span class="op">=</span>(shop, <span class="bu">max</span>(means_away[i], means_present[i]) <span class="op">+</span> <span class="dv">6</span>),</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>                ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span>delta_color,</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>                arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">'-&gt;'</span>, color<span class="op">=</span>delta_color, lw<span class="op">=</span><span class="fl">1.5</span>))</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Shop'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Average Cars Fixed'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Style 4: Line Plot - Productivity Trends Across Shops'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(shop_ids)</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids], fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, fontsize<span class="op">=</span><span class="dv">11</span>, frameon<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>ax.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="dv">80</span>)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="8fd62fe7" class="cell" data-fig-height="6" data-fig-width="8" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create pivot table for heatmap</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>heatmap_data <span class="op">=</span> []</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> shop <span class="kw">in</span> shop_ids:</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    row <span class="op">=</span> []</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    row.append(carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">0</span>)][<span class="st">'carsFixed'</span>].mean())</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    row.append(carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">1</span>)][<span class="st">'carsFixed'</span>].mean())</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    heatmap_data.append(row)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>heatmap_array <span class="op">=</span> np.array(heatmap_data)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create heatmap</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(heatmap_array, cmap<span class="op">=</span><span class="st">'RdYlGn'</span>, aspect<span class="op">=</span><span class="st">'auto'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">70</span>)</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ticks</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="st">'You Away'</span>, <span class="st">'You Present'</span>], fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(shop_ids)))</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>ax.set_yticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids], fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text annotations</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(shop_ids)):</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>):</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        text <span class="op">=</span> ax.text(j, i, <span class="ss">f'</span><span class="sc">{</span>heatmap_array[i, j]<span class="sc">:.1f}</span><span class="ss">'</span>, </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                      ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>, color<span class="op">=</span><span class="st">"black"</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Add colorbar</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>cbar <span class="op">=</span> plt.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>cbar.set_label(<span class="st">'Average Cars Fixed'</span>, fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Style 5: Heatmap - Productivity Intensity by Shop and Presence'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong><em>Reading this heatmap:</em></strong> The heatmap shows the productivity for each shop when you’re away vs.&nbsp;when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
-<div id="4ffb3495" class="cell" data-fig-height="7" data-fig-width="10" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate base (away) and boost (difference)</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>base_values <span class="op">=</span> [carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">0</span>)][<span class="st">'carsFixed'</span>].mean() <span class="cf">for</span> shop <span class="kw">in</span> shop_ids]</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>boost_values <span class="op">=</span> [carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">1</span>)][<span class="st">'carsFixed'</span>].mean() <span class="op">-</span> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                carsDF[(carsDF[<span class="st">'shopID'</span>] <span class="op">==</span> shop) <span class="op">&amp;</span> (carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">0</span>)][<span class="st">'carsFixed'</span>].mean() </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> shop <span class="kw">in</span> shop_ids]</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create stacked bars</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>ax.bar(shop_ids, base_values, label<span class="op">=</span><span class="st">'Base (You Away)'</span>, color<span class="op">=</span><span class="st">'#E67E22'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>ax.bar(shop_ids, boost_values, bottom<span class="op">=</span>base_values, label<span class="op">=</span><span class="st">'Boost (Your Impact)'</span>, </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>       color<span class="op">=</span><span class="st">'#27AE60'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Add total labels</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, shop <span class="kw">in</span> <span class="bu">enumerate</span>(shop_ids):</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> base_values[i] <span class="op">+</span> boost_values[i]</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    ax.text(shop, total <span class="op">+</span> <span class="dv">2</span>, <span class="ss">f'</span><span class="sc">{</span>total<span class="sc">:.1f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">10</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'#27AE60'</span>)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> boost_values[i] <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        ax.text(shop, base_values[i] <span class="op">+</span> boost_values[i]<span class="op">/</span><span class="dv">2</span>, <span class="ss">f'+</span><span class="sc">{</span>boost_values[i]<span class="sc">:.1f}</span><span class="ss">'</span>, </span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                ha<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">9</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, color<span class="op">=</span><span class="st">'white'</span>)</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">'Shop'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Cars Fixed'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Style 6: Stacked Bar Chart - Base Productivity + Your Impact'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>ax.set_xticks(shop_ids)</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>ax.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids], fontsize<span class="op">=</span><span class="dv">11</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>ax.legend(loc<span class="op">=</span><span class="st">'upper left'</span>, fontsize<span class="op">=</span><span class="dv">11</span>, frameon<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>ax.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">0</span>, <span class="dv">75</span>)</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong><em>Reading this stacked area chart:</em></strong> The stacked area chart shows the base productivity (when you’re away) and the boost productivity (when you’re present). The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
 </section>
 <section id="comprehensive-analysis-shop-performance-weekly-patterns-yearly-benefits" class="level2">
 <h2 class="anchored" data-anchor-id="comprehensive-analysis-shop-performance-weekly-patterns-yearly-benefits">Comprehensive Analysis: Shop Performance, Weekly Patterns &amp; Yearly Benefits</h2>
 <section id="shop-based-performance-dashboard" class="level3">
 <h3 class="anchored" data-anchor-id="shop-based-performance-dashboard">Shop-Based Performance Dashboard</h3>
-<div id="bbd9e671" class="cell" data-fig-height="10" data-fig-width="14" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gs <span class="op">=</span> fig.add_gridspec(<span class="dv">2</span>, <span class="dv">3</span>, hspace<span class="op">=</span><span class="fl">0.3</span>, wspace<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Shop Performance Comparison (Top Left)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>, <span class="dv">0</span>])</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>shop_performance <span class="op">=</span> carsDF.groupby([<span class="st">'shopID'</span>, <span class="st">'boss'</span>])[<span class="st">'carsFixed'</span>].mean().unstack()</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(shop_ids))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>bars1 <span class="op">=</span> ax1.bar(x <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, shop_performance[<span class="dv">0</span>], width, label<span class="op">=</span><span class="st">'You Away'</span>, color<span class="op">=</span><span class="st">'#E67E22'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>bars2 <span class="op">=</span> ax1.bar(x <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, shop_performance[<span class="dv">1</span>], width, label<span class="op">=</span><span class="st">'You Present'</span>, color<span class="op">=</span><span class="st">'#27AE60'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">'Shop'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">'Avg Cars Fixed'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">'Shop Performance Comparison'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>ax1.set_xticks(x)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>ax1.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids])</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>ax1.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Your Impact by Shop (Top Middle)</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>, <span class="dv">1</span>])</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>impact <span class="op">=</span> shop_performance[<span class="dv">1</span>] <span class="op">-</span> shop_performance[<span class="dv">0</span>]</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>colors_impact <span class="op">=</span> [<span class="st">'#27AE60'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'#E74C3C'</span> <span class="cf">for</span> x <span class="kw">in</span> impact]</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax2.bar(shop_ids, impact, color<span class="op">=</span>colors_impact, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>ax2.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Shop'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Productivity Boost'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Your Impact: Extra Cars Fixed'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>ax2.set_xticks(shop_ids)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>ax2.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids])</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (shop, val) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(shop_ids, impact)):</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    ax2.text(shop, val <span class="op">+</span> <span class="fl">0.5</span> <span class="cf">if</span> val <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> val <span class="op">-</span> <span class="dv">1</span>, <span class="ss">f'+</span><span class="sc">{</span>val<span class="sc">:.1f}</span><span class="ss">'</span> <span class="cf">if</span> val <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="ss">f'</span><span class="sc">{</span>val<span class="sc">:.1f}</span><span class="ss">'</span>, </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>             ha<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>ax2.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Total Cars Fixed by Shop (Top Right)</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">0</span>, <span class="dv">2</span>])</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>total_by_shop <span class="op">=</span> carsDF.groupby(<span class="st">'shopID'</span>)[<span class="st">'carsFixed'</span>].<span class="bu">sum</span>()</span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax3.bar(shop_ids, [total_by_shop[s] <span class="cf">for</span> s <span class="kw">in</span> shop_ids], </span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>               color<span class="op">=</span>[<span class="st">'#E74C3C'</span>, <span class="st">'#3498DB'</span>, <span class="st">'#2ECC71'</span>, <span class="st">'#9B59B6'</span>, <span class="st">'#F39C12'</span>], alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>ax3.set_xlabel(<span class="st">'Shop'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>ax3.set_ylabel(<span class="st">'Total Cars Fixed (250 days)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">'Total Productivity by Shop'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>ax3.set_xticks(shop_ids)</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>ax3.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids])</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, shop <span class="kw">in</span> <span class="bu">enumerate</span>(shop_ids):</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    ax3.text(shop, total_by_shop[shop] <span class="op">+</span> <span class="dv">50</span>, <span class="ss">f'</span><span class="sc">{</span><span class="bu">int</span>(total_by_shop[shop])<span class="sc">}</span><span class="ss">'</span>, </span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>             ha<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>ax3.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Shop Efficiency Score (Bottom Left) - Your presence impact relative to base</span></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>ax4 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>efficiency <span class="op">=</span> (shop_performance[<span class="dv">1</span>] <span class="op">/</span> shop_performance[<span class="dv">0</span>] <span class="op">-</span> <span class="dv">1</span>) <span class="op">*</span> <span class="dv">100</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax4.bar(shop_ids, efficiency, color<span class="op">=</span><span class="st">'#3498DB'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>ax4.set_xlabel(<span class="st">'Shop'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>ax4.set_ylabel(<span class="st">'Efficiency Gain (%)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">'Efficiency Gain When You</span><span class="ch">\'</span><span class="st">re Present'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>ax4.set_xticks(shop_ids)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>ax4.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids])</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (shop, val) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(shop_ids, efficiency)):</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>    ax4.text(shop, val <span class="op">+</span> <span class="dv">1</span>, <span class="ss">f'+</span><span class="sc">{</span>val<span class="sc">:.1f}</span><span class="ss">%'</span>, ha<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>ax4.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Shop Consistency (Bottom Middle) - Coefficient of variation</span></span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>ax5 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>consistency_away <span class="op">=</span> carsDF[carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">0</span>].groupby(<span class="st">'shopID'</span>)[<span class="st">'carsFixed'</span>].agg(<span class="kw">lambda</span> x: x.std() <span class="op">/</span> x.mean() <span class="op">*</span> <span class="dv">100</span>)</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>consistency_present <span class="op">=</span> carsDF[carsDF[<span class="st">'boss'</span>] <span class="op">==</span> <span class="dv">1</span>].groupby(<span class="st">'shopID'</span>)[<span class="st">'carsFixed'</span>].agg(<span class="kw">lambda</span> x: x.std() <span class="op">/</span> x.mean() <span class="op">*</span> <span class="dv">100</span>)</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="bu">len</span>(shop_ids))</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>width <span class="op">=</span> <span class="fl">0.35</span></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>bars1 <span class="op">=</span> ax5.bar(x <span class="op">-</span> width<span class="op">/</span><span class="dv">2</span>, [consistency_away[s] <span class="cf">for</span> s <span class="kw">in</span> shop_ids], width, </span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="st">'You Away'</span>, color<span class="op">=</span><span class="st">'#E67E22'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>bars2 <span class="op">=</span> ax5.bar(x <span class="op">+</span> width<span class="op">/</span><span class="dv">2</span>, [consistency_present[s] <span class="cf">for</span> s <span class="kw">in</span> shop_ids], width, </span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>                label<span class="op">=</span><span class="st">'You Present'</span>, color<span class="op">=</span><span class="st">'#27AE60'</span>, alpha<span class="op">=</span><span class="fl">0.8</span>)</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>ax5.set_xlabel(<span class="st">'Shop'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>ax5.set_ylabel(<span class="st">'Variability (%)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>ax5.set_title(<span class="st">'Consistency: Lower is Better'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>ax5.set_xticks(x)</span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>ax5.set_xticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> shop_ids])</span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>ax5.legend()</span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>ax5.grid(axis<span class="op">=</span><span class="st">'y'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Priority Ranking (Bottom Right)</span></span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>ax6 <span class="op">=</span> fig.add_subplot(gs[<span class="dv">1</span>, <span class="dv">2</span>])</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a><span class="co"># Rank by impact (descending)</span></span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>ranked_shops <span class="op">=</span> impact.sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>y_pos <span class="op">=</span> np.arange(<span class="bu">len</span>(ranked_shops))</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>colors_rank <span class="op">=</span> [<span class="st">'#27AE60'</span> <span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> <span class="st">'#E74C3C'</span> <span class="cf">for</span> x <span class="kw">in</span> ranked_shops.values]</span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>bars <span class="op">=</span> ax6.barh(y_pos, ranked_shops.values, color<span class="op">=</span>colors_rank, alpha<span class="op">=</span><span class="fl">0.8</span>, edgecolor<span class="op">=</span><span class="st">'black'</span>)</span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>ax6.set_yticks(y_pos)</span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>ax6.set_yticklabels([<span class="ss">f'Shop </span><span class="sc">{</span>s<span class="sc">}</span><span class="ss">'</span> <span class="cf">for</span> s <span class="kw">in</span> ranked_shops.index], fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>ax6.set_xlabel(<span class="st">'Productivity Boost (Cars)'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>ax6.set_title(<span class="st">'Priority Ranking: Where to Focus'</span>, fontsize<span class="op">=</span><span class="dv">12</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, (shop, val) <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">zip</span>(ranked_shops.index, ranked_shops.values)):</span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    ax6.text(val <span class="op">+</span> <span class="fl">0.3</span> <span class="cf">if</span> val <span class="op">&gt;</span> <span class="dv">0</span> <span class="cf">else</span> val <span class="op">-</span> <span class="fl">0.5</span>, i, <span class="ss">f'+</span><span class="sc">{</span>val<span class="sc">:.1f}</span><span class="ss">'</span>, </span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>             va<span class="op">=</span><span class="st">'center'</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, fontsize<span class="op">=</span><span class="dv">9</span>)</span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>ax6.grid(axis<span class="op">=</span><span class="st">'x'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>ax6.axvline(x<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">'Shop Performance Dashboard: Complete Analysis'</span>, fontsize<span class="op">=</span><span class="dv">16</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, y<span class="op">=</span><span class="fl">0.98</span>)</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 <p><strong><em>Reading this shop performance dashboard:</em></strong> The shop performance dashboard shows the productivity for each shop when you’re away vs.&nbsp;when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)</p>
 </section>
 <section id="weekly-pattern-analysis-7-days-performance" class="level3">

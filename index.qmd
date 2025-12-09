@@ -247,11 +247,14 @@ plt.tight_layout()
 plt.show()
 ```
 ***Reading this box and whisker plot:*** The box plot shows the distribution of productivity for each shop when you’re away vs. when you’re present. The box shows the quartiles, the median, and the outliers. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
+
+
 ```{python}
 #| fig-cap: "Style 4: Line Plot - Trend comparison across shops"
 #| fig-width: 10
 #| fig-height: 7
 #| eval: false
+#| echo: false
 
 fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -294,90 +297,6 @@ ax.set_ylim(0, 80)
 plt.tight_layout()
 plt.show()
 ```
-
-```{python}
-#| fig-cap: "Style 5: Heatmap - Color intensity shows productivity levels"
-#| fig-width: 8
-#| fig-height: 6
-#| eval: false
-
-fig, ax = plt.subplots(figsize=(8, 6))
-
-# Create pivot table for heatmap
-heatmap_data = []
-for shop in shop_ids:
-    row = []
-    row.append(carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 0)]['carsFixed'].mean())
-    row.append(carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 1)]['carsFixed'].mean())
-    heatmap_data.append(row)
-
-heatmap_array = np.array(heatmap_data)
-
-# Create heatmap
-im = ax.imshow(heatmap_array, cmap='RdYlGn', aspect='auto', vmin=0, vmax=70)
-
-# Set ticks
-ax.set_xticks([0, 1])
-ax.set_xticklabels(['You Away', 'You Present'], fontsize=11, fontweight='bold')
-ax.set_yticks(range(len(shop_ids)))
-ax.set_yticklabels([f'Shop {s}' for s in shop_ids], fontsize=11, fontweight='bold')
-
-# Add text annotations
-for i in range(len(shop_ids)):
-    for j in range(2):
-        text = ax.text(j, i, f'{heatmap_array[i, j]:.1f}', 
-                      ha="center", va="center", color="black", fontsize=12, fontweight='bold')
-
-# Add colorbar
-cbar = plt.colorbar(im, ax=ax)
-cbar.set_label('Average Cars Fixed', fontsize=11, fontweight='bold')
-
-ax.set_title('Style 5: Heatmap - Productivity Intensity by Shop and Presence', fontsize=14, fontweight='bold')
-plt.tight_layout()
-plt.show()
-```
-***Reading this heatmap:*** The heatmap shows the productivity for each shop when you’re away vs. when you’re present. The color intensity shows the productivity level. The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
-
-```{python}
-#| fig-cap: "Style 6: Stacked Area Chart - Visualizing the boost effect"
-#| fig-width: 10
-#| fig-height: 7
-#| eval: false
-
-fig, ax = plt.subplots(figsize=(10, 7))
-
-# Calculate base (away) and boost (difference)
-base_values = [carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 0)]['carsFixed'].mean() for shop in shop_ids]
-boost_values = [carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 1)]['carsFixed'].mean() - 
-                carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 0)]['carsFixed'].mean() 
-                for shop in shop_ids]
-
-# Create stacked bars
-ax.bar(shop_ids, base_values, label='Base (You Away)', color='#E67E22', alpha=0.8, edgecolor='black', linewidth=1.5)
-ax.bar(shop_ids, boost_values, bottom=base_values, label='Boost (Your Impact)', 
-       color='#27AE60', alpha=0.8, edgecolor='black', linewidth=1.5)
-
-# Add total labels
-for i, shop in enumerate(shop_ids):
-    total = base_values[i] + boost_values[i]
-    ax.text(shop, total + 2, f'{total:.1f}', ha='center', fontsize=10, fontweight='bold', color='#27AE60')
-    if boost_values[i] > 0:
-        ax.text(shop, base_values[i] + boost_values[i]/2, f'+{boost_values[i]:.1f}', 
-                ha='center', fontsize=9, fontweight='bold', color='white')
-
-ax.set_xlabel('Shop', fontsize=12, fontweight='bold')
-ax.set_ylabel('Cars Fixed', fontsize=12, fontweight='bold')
-ax.set_title('Style 6: Stacked Bar Chart - Base Productivity + Your Impact', fontsize=14, fontweight='bold')
-ax.set_xticks(shop_ids)
-ax.set_xticklabels([f'Shop {s}' for s in shop_ids], fontsize=11, fontweight='bold')
-ax.legend(loc='upper left', fontsize=11, frameon=True)
-ax.grid(axis='y', alpha=0.3, linestyle='--')
-ax.set_ylim(0, 75)
-plt.tight_layout()
-plt.show()
-```
-***Reading this stacked area chart:*** The stacked area chart shows the base productivity (when you’re away) and the boost productivity (when you’re present). The delta (Δ) shows how many more cars get fixed when you’re present. Shop 4 has the biggest delta (+12.8), while Shop 3 (your brother’s shop) shows the smallest improvement (+2.9)
-
 ## Comprehensive Analysis: Shop Performance, Weekly Patterns & Yearly Benefits
 
 ### Shop-Based Performance Dashboard
@@ -387,6 +306,7 @@ plt.show()
 #| fig-width: 14
 #| fig-height: 10
 #| eval: false
+#| echo: false
 
 fig = plt.figure(figsize=(14, 10))
 gs = fig.add_gridspec(2, 3, hspace=0.3, wspace=0.3)
@@ -501,6 +421,7 @@ plt.show()
 #| fig-height: 10
 #| eval: false
 #| echo: false
+
 fig = plt.figure(figsize=(14, 10))
 gs = fig.add_gridspec(2, 2, hspace=0.3, wspace=0.3)
 
@@ -602,8 +523,6 @@ Since you can only visit **1 shop per day**, here's your optimal weekly schedule
 
 ```{python}
 #| fig-cap: "Yearly Benefits - Projected annual impact of optimal scheduling"
-#| fig-width: 14
-#| fig-height: 10
 #| eval: false
 #| echo: false
 
