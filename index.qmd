@@ -255,7 +255,7 @@ plt.show()
 #| eval: true
 #| echo: false
 
-fig, ax = plt.subplots(figsize=(10, 7))
+fig, ax = plt.subplots(figsize=(8, 5))
 
 # Calculate means
 means_away = [carsDF[(carsDF['shopID'] == shop) & (carsDF['boss'] == 0)]['carsFixed'].mean() for shop in shop_ids]
@@ -307,7 +307,7 @@ plt.show()
 #| eval: true
 #| echo: false
 
-fig = plt.figure(figsize=(14, 10))
+fig = plt.figure(figsize=(8, 5))
 gs = fig.add_gridspec(2, 3, hspace=0.3, wspace=0.3)
 
 # 1. Shop Performance Comparison (Top Left)
@@ -482,7 +482,7 @@ This horizontal bar chart ranks all five shops by their productivity boost when 
 #| eval: true
 #| echo: false
 
-fig = plt.figure(figsize=(14, 10))
+fig = plt.figure(figsize=(8, 5))
 gs = fig.add_gridspec(2, 2, hspace=0.3, wspace=0.3)
 
 # 1. Average Productivity by Day of Week (Top Left)
@@ -636,7 +636,7 @@ Since you can only visit **1 shop per day**, here's your optimal weekly schedule
 #| eval: true
 #| echo: false
 
-fig = plt.figure(figsize=(14, 10))    
+fig = plt.figure(figsize=(8, 5))    
 gs = fig.add_gridspec(2, 2, hspace=0.3, wspace=0.3)
 
 # Calculate key metrics
