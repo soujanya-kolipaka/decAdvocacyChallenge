@@ -252,7 +252,7 @@ plt.show()
 #| fig-cap: "Style 4: Line Plot - Trend comparison across shops"
 #| fig-width: 10
 #| fig-height: 7
-#| eval: false
+#| eval: true
 #| echo: false
 
 fig, ax = plt.subplots(figsize=(10, 7))
@@ -304,7 +304,7 @@ plt.show()
 #| fig-cap: "Shop Performance Dashboard - Comparing all shops side by side with your impact"
 #| fig-width: 14
 #| fig-height: 10
-#| eval: false
+#| eval: true
 #| echo: false
 
 fig = plt.figure(figsize=(14, 10))
@@ -479,7 +479,7 @@ This horizontal bar chart ranks all five shops by their productivity boost when 
 #| fig-cap: "Weekly Patterns - How productivity varies across the 7 days of the week (Remember: You can only visit 1 shop per day)"
 #| fig-width: 14
 #| fig-height: 10
-#| eval: false
+#| eval: true
 #| echo: false
 
 fig = plt.figure(figsize=(14, 10))
@@ -633,7 +633,7 @@ Since you can only visit **1 shop per day**, here's your optimal weekly schedule
 
 ```{python}
 #| fig-cap: "Yearly Benefits - Projected annual impact of optimal scheduling"
-#| eval: false
+#| eval: true
 #| echo: false
 
 fig = plt.figure(figsize=(14, 10))    
@@ -890,4 +890,4 @@ Your report should answer these questions in a clear, concise way:
    - Show at least one visualization of projected outcomes under different scheduling scenarios
    - Help Patrick see the potential impact of following your recommendations
    answer: The 5-year projection shows that consistent optimal scheduling compounds significantly over time. Small daily improvements add up to substantial long-term gains.
-   
+     7
